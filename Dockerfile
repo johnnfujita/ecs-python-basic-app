@@ -32,7 +32,7 @@ ADD ./requirements.txt ./requirements.txt
 
 RUN pip install --no-cache-dir -r ./requirements.txt --user
 
-COPY ./main.py /app
+COPY ./src /app
 WORKDIR /app
 
 
