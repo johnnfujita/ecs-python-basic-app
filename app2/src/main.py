@@ -1,21 +1,20 @@
 
 from fastapi import FastAPI
-# from .item.database import engine
-# from .item import models
+from .item.database import engine
+from .item import models
 
 
-# from  .item.routers import authentication, item, user
+from  .item.routers import authentication, item, user
 
 app = FastAPI()
 
-@app.get("/")
-def home():
-    return {"home": "hello"}
-# models.Base.metadata.create_all(engine)
 
-# app.include_router(item.router)
-# app.include_router(user.router)
-# app.include_router(authentication.router)
+
+models.Base.metadata.create_all(engine)
+
+app.include_router(item.router)
+app.include_router(user.router)
+app.include_router(authentication.router)
 
 # the session was actually created in the database.py file by the sessionmaker
 # def get_db():
